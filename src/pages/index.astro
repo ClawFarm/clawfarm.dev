@@ -72,7 +72,7 @@ const tlsModes = [
       <div class="flex items-center gap-6 text-sm text-zinc-400">
         <a href="#features" class="hidden transition hover:text-zinc-100 sm:block">Features</a>
         <a href="#deploy" class="hidden transition hover:text-zinc-100 sm:block">Deploy</a>
-        <a href="https://github.com/stormship/clawfarm" class="flex items-center gap-1.5 transition hover:text-zinc-100">
+        <a href="https://github.com/clawfarm/clawfarm" class="flex items-center gap-1.5 transition hover:text-zinc-100">
           <svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
           GitHub
         </a>
@@ -87,7 +87,7 @@ const tlsModes = [
         <div class="max-w-3xl">
           <h1 class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
             Self-hosted fleet manager for
-            <span class="text-emerald-400">OpenClaw</span>
+            <span class="text-blue-400">OpenClaw</span>
             AI agents
           </h1>
           <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
@@ -97,12 +97,12 @@ const tlsModes = [
           <div class="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#quickstart"
-              class="rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-medium transition hover:bg-emerald-500"
+              class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium transition hover:bg-blue-500"
             >
               Get Started
             </a>
             <a
-              href="https://github.com/stormship/clawfarm"
+              href="https://github.com/clawfarm/clawfarm"
               class="rounded-lg border border-zinc-700 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100"
             >
               View on GitHub
@@ -112,12 +112,12 @@ const tlsModes = [
       </div>
 
       <!-- Gradient glow behind hero -->
-      <div class="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full bg-emerald-500/5 blur-3xl"></div>
+      <div class="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-3xl"></div>
     </section>
 
     <!-- Screenshot -->
     <section class="mx-auto max-w-6xl px-6 pb-24">
-      <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-emerald-500/5">
+      <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-blue-500/5">
         <img
           src="/screenshot-dashboard.png"
           alt="ClawFarm dashboard showing three running AI agents with status, token usage, and management controls"
@@ -140,11 +140,11 @@ const tlsModes = [
             <span class="ml-2">terminal</span>
           </div>
           <pre class="overflow-x-auto p-5 text-sm leading-relaxed"><code class="text-zinc-300"><span class="text-zinc-500"># Clone & configure</span>
-<span class="text-emerald-400">$</span> git clone https://github.com/stormship/clawfarm && cd clawfarm
-<span class="text-emerald-400">$</span> cp .env.example .env   <span class="text-zinc-500"># add your LLM provider details</span>
+<span class="text-blue-400">$</span> git clone https://github.com/clawfarm/clawfarm && cd clawfarm
+<span class="text-blue-400">$</span> cp .env.example .env   <span class="text-zinc-500"># add your LLM provider details</span>
 
 <span class="text-zinc-500"># Launch</span>
-<span class="text-emerald-400">$</span> docker compose up --build -d
+<span class="text-blue-400">$</span> docker compose up --build -d
 
 <span class="text-zinc-500"># Open https://&lt;your-ip&gt;:8443</span>
 <span class="text-zinc-500"># Admin password: docker compose logs dashboard | head -20</span></code></pre>
@@ -183,7 +183,7 @@ const tlsModes = [
               <div class="flex items-center gap-2">
                 <h3 class="font-semibold">{mode.name}</h3>
                 {mode.default && (
-                  <span class="rounded-full bg-emerald-500/10 px-2 py-0.5 text-xs font-medium text-emerald-400">
+                  <span class="rounded-full bg-blue-500/10 px-2 py-0.5 text-xs font-medium text-blue-400">
                     default
                   </span>
                 )}
@@ -227,7 +227,7 @@ const tlsModes = [
           All Docker, all the way down. Dashboard, frontend, and reverse proxy run as containers. Each agent is another container with its own isolated network.
         </p>
         <div class="mt-8 overflow-hidden rounded-lg border border-zinc-800 bg-zinc-900">
-          <pre class="overflow-x-auto p-5 text-sm leading-relaxed"><code class="text-zinc-300">Browser <span class="text-zinc-500">──&gt;</span> <span class="text-emerald-400">Caddy</span> <span class="text-zinc-500">(TLS + auth)</span> <span class="text-zinc-500">──&gt;</span> <span class="text-emerald-400">Dashboard</span> <span class="text-zinc-500">(FastAPI)</span> <span class="text-zinc-500">──&gt;</span> <span class="text-emerald-400">Bot containers</span> <span class="text-zinc-500">(OpenClaw)</span>
+          <pre class="overflow-x-auto p-5 text-sm leading-relaxed"><code class="text-zinc-300">Browser <span class="text-zinc-500">──&gt;</span> <span class="text-blue-400">Caddy</span> <span class="text-zinc-500">(TLS + auth)</span> <span class="text-zinc-500">──&gt;</span> <span class="text-blue-400">Dashboard</span> <span class="text-zinc-500">(FastAPI)</span> <span class="text-zinc-500">──&gt;</span> <span class="text-blue-400">Bot containers</span> <span class="text-zinc-500">(OpenClaw)</span>
                                      <span class="text-zinc-500">↕</span>
                                 Docker socket</code></pre>
         </div>
@@ -250,12 +250,12 @@ const tlsModes = [
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href="#quickstart"
-            class="rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-medium transition hover:bg-emerald-500"
+            class="rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-medium transition hover:bg-blue-500"
           >
             Get Started
           </a>
           <a
-            href="https://github.com/stormship/clawfarm"
+            href="https://github.com/clawfarm/clawfarm"
             class="rounded-lg border border-zinc-700 px-5 py-2.5 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-100"
           >
             View on GitHub
@@ -270,8 +270,8 @@ const tlsModes = [
     <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-zinc-500 sm:flex-row">
       <span>ClawFarm — open source, MIT licensed</span>
       <div class="flex items-center gap-6">
-        <a href="https://github.com/stormship/clawfarm" class="transition hover:text-zinc-300">GitHub</a>
-        <a href="https://github.com/stormship/clawfarm/blob/master/CONTRIBUTING.md" class="transition hover:text-zinc-300">Contributing</a>
+        <a href="https://github.com/clawfarm/clawfarm" class="transition hover:text-zinc-300">GitHub</a>
+        <a href="https://github.com/clawfarm/clawfarm/blob/master/CONTRIBUTING.md" class="transition hover:text-zinc-300">Contributing</a>
       </div>
     </div>
   </footer>
