@@ -1,0 +1,28 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clawfarm.dev" />
+    <meta property="og:image" content="https://clawfarm.dev/screenshot-dashboard.png" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-zinc-950 text-zinc-100 antialiased">
+    <slot />
+  </body>
+</html>
