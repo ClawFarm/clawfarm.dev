@@ -120,7 +120,7 @@ const tlsModes = [
       <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-blue-500/5">
         <img
           src="/screenshot-dashboard.png"
-          alt="ClawFarm dashboard showing three running AI agents with status, token usage, and management controls"
+          alt="ClawFarm dashboard showing five running AI agents with status, token usage, and management controls"
           class="w-full"
           loading="lazy"
         />
@@ -144,7 +144,7 @@ const tlsModes = [
 <span class="text-blue-400">$</span> cp .env.example .env   <span class="text-zinc-500"># add your LLM provider details</span>
 
 <span class="text-zinc-500"># Launch</span>
-<span class="text-blue-400">$</span> docker compose up --build -d
+<span class="text-blue-400">$</span> docker compose up -d
 
 <span class="text-zinc-500"># Open https://&lt;your-ip&gt;:8443</span>
 <span class="text-zinc-500"># Admin password: docker compose logs dashboard | head -20</span></code></pre>
@@ -200,20 +200,20 @@ const tlsModes = [
       <div class="mx-auto max-w-6xl px-6">
         <h2 class="text-2xl font-bold tracking-tight sm:text-3xl">Works with any LLM</h2>
         <p class="mt-3 max-w-2xl text-zinc-400">
-          Any OpenAI-compatible API. Cloud providers, local models, or a mix.
+          Built-in templates for major providers. Any OpenAI-compatible API works too — local or cloud.
         </p>
         <div class="mt-12 grid gap-4 sm:grid-cols-3">
           <div class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
             <h3 class="font-semibold">Cloud APIs</h3>
-            <p class="mt-2 text-sm text-zinc-400">OpenAI, Anthropic, OpenRouter — set three env vars and go.</p>
+            <p class="mt-2 text-sm text-zinc-400">Anthropic Claude, OpenAI GPT, MiniMax, Qwen — one template per provider, just add an API key.</p>
           </div>
           <div class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
             <h3 class="font-semibold">Local Models</h3>
-            <p class="mt-2 text-sm text-zinc-400">vLLM, Ollama, LiteLLM — point to your local endpoint.</p>
+            <p class="mt-2 text-sm text-zinc-400">vLLM, Ollama, LM Studio — use the custom-endpoint template and point to your server.</p>
           </div>
           <div class="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
-            <h3 class="font-semibold">Templates</h3>
-            <p class="mt-2 text-sm text-zinc-400">Different configs for different use cases. One template per provider, model, or personality.</p>
+            <h3 class="font-semibold">Mix & Match</h3>
+            <p class="mt-2 text-sm text-zinc-400">Different agents can use different providers. Run Claude for coding and GPT for research side by side.</p>
           </div>
         </div>
       </div>
