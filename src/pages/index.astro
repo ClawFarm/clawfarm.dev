@@ -115,17 +115,96 @@ const tlsModes = [
       <div class="pointer-events-none absolute -top-40 right-0 h-[500px] w-[500px] rounded-full bg-blue-500/5 blur-3xl"></div>
     </section>
 
-    <!-- Screenshot -->
+    <!-- Screenshots -->
     <section class="mx-auto max-w-6xl px-6 pb-24">
-      <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-blue-500/5">
-        <img
-          src="/screenshot-dashboard.png"
-          alt="ClawFarm dashboard showing five running AI agents with status, token usage, and management controls"
-          class="w-full"
-          loading="lazy"
-        />
+      <!-- Device toggle -->
+      <div class="mb-6 flex items-center justify-end">
+        <div class="inline-flex rounded-lg border border-zinc-800 bg-zinc-900/50 p-1" id="device-toggle">
+          <button
+            data-device="desktop"
+            class="rounded-md px-3 py-1.5 text-sm font-medium transition bg-zinc-700 text-zinc-100"
+          >
+            <svg class="mr-1.5 inline-block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8m-4-4v4" /></svg>
+            Desktop
+          </button>
+          <button
+            data-device="mobile"
+            class="rounded-md px-3 py-1.5 text-sm font-medium transition text-zinc-400 hover:text-zinc-200"
+          >
+            <svg class="mr-1.5 inline-block h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" /><path d="M12 18h.01" /></svg>
+            Mobile
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop screenshots -->
+      <div id="screenshots-desktop" class="space-y-6">
+        <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-blue-500/5">
+          <img
+            src="/screenshot-dashboard.png"
+            alt="ClawFarm dashboard showing a fleet of running AI agents with status, token usage, and management controls"
+            class="w-full"
+            loading="lazy"
+          />
+        </div>
+        <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-blue-500/5">
+          <img
+            src="/screenshot-create-agent.png"
+            alt="Creating a new agent with template selection and personality configuration"
+            class="w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Mobile screenshots -->
+      <div id="screenshots-mobile" class="hidden">
+        <div class="mx-auto grid max-w-md grid-cols-2 gap-6">
+          <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-blue-500/5">
+            <img
+              src="/screenshot-mobile-dashboard.png"
+              alt="ClawFarm mobile dashboard view"
+              class="w-full"
+              loading="lazy"
+            />
+          </div>
+          <div class="overflow-hidden rounded-xl border border-zinc-800 shadow-2xl shadow-blue-500/5">
+            <img
+              src="/screenshot-mobile-create.png"
+              alt="ClawFarm mobile create agent view"
+              class="w-full"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     </section>
+
+    <script>
+      const toggle = document.getElementById('device-toggle');
+      const desktopPane = document.getElementById('screenshots-desktop');
+      const mobilePane = document.getElementById('screenshots-mobile');
+      toggle?.addEventListener('click', (e) => {
+        const btn = (e.target as HTMLElement).closest('button[data-device]') as HTMLButtonElement | null;
+        if (!btn) return;
+        const device = btn.dataset.device;
+        const buttons = toggle.querySelectorAll('button[data-device]');
+        buttons.forEach((b) => {
+          if (b.getAttribute('data-device') === device) {
+            b.className = 'rounded-md px-3 py-1.5 text-sm font-medium transition bg-zinc-700 text-zinc-100';
+          } else {
+            b.className = 'rounded-md px-3 py-1.5 text-sm font-medium transition text-zinc-400 hover:text-zinc-200';
+          }
+        });
+        if (device === 'mobile') {
+          desktopPane?.classList.add('hidden');
+          mobilePane?.classList.remove('hidden');
+        } else {
+          desktopPane?.classList.remove('hidden');
+          mobilePane?.classList.add('hidden');
+        }
+      });
+    </script>
 
     <!-- Quick Start -->
     <section id="quickstart" class="border-t border-zinc-800/50 py-20 sm:py-28">
